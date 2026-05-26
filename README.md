@@ -37,7 +37,7 @@ Refresh Token (Stateful Whitelist): Long-lived token (7 days) saved securely ins
 * **Database Persistent Layer:** PostgreSQL Engine (Relational identity models, indexing)
 * **API Verification & Contracts:** Postman Client v10 Engine
 
-![database Schema](system-architecture/db%20diagram.png)
+![database Schema](system-architecture/db-schema.png)
 
 ## Core Dependencies Used
 * spring-boot-starter-web
