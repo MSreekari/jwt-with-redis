@@ -9,7 +9,7 @@ Refresh Token (Stateful Whitelist): Long-lived token (7 days) saved securely ins
 
 2. Instant Token Revocation (Blacklisting) - When an explicit /logout event is triggered, the short-lived access token is captured and committed directly to Redis as a temporary Blacklisted key. The key's Time-to-Live (TTL) is dynamically calculated to match the exact remaining lifespan of the token, ensuring automatic clean-up while blocking unauthorized usage immediately.
 
-![System Architecture](system-architecture/hld diagram.png)
+![System Architecture](system-architecture/hld%20diagram.png)
 
 ## Ecosystem
 * Backend Framework: Spring Boot v4.0.6 / Java 24
@@ -28,7 +28,7 @@ Refresh Token (Stateful Whitelist): Long-lived token (7 days) saved securely ins
 * **Zero-Trust Security Context Integration:** Integrates fully custom `JwtFilter` request processing layers directly into Spring Security's native execution pipeline. Successfully validated incoming token claims seamlessly inject type-safe domain identities into the system context via `@AuthenticationPrincipal`, eliminating manual data extraction or redundant database lookups across protected controller endpoints.
 * **Non-Blocking Text-Serialized RAM Access:** Utilizes plain-text key-value space mapping and standard string serialization inside the memory database engine. This ensures all background caching, session checks, and blacklisting operations execute at maximum sub-millisecond network speeds without data structure parsing overhead.
 
-![Class Diagram](system-architecture/lld diagram.png)
+![Class Diagram](system-architecture/lld%20diagram.png)
 
 ## Tech Stack & Tools
 
@@ -37,7 +37,7 @@ Refresh Token (Stateful Whitelist): Long-lived token (7 days) saved securely ins
 * **Database Persistent Layer:** PostgreSQL Engine (Relational identity models, indexing)
 * **API Verification & Contracts:** Postman Client v10 Engine
 
-![database Schema](system-architecture/db_schema.png)
+![database Schema](system-architecture/db%20diagram.png)
 
 ## Core Dependencies Used
 * spring-boot-starter-web
