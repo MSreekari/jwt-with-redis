@@ -3,7 +3,6 @@ package com.project.JwtWithRedis.security;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -26,10 +25,11 @@ public class JwtUtil {
     public long jwtAccessExpirationMs;
 
     @Value("${app.jwt.refresh-expiration-ms}")
-    public long  jwtRefreshExpirationMs;
+    public long jwtRefreshExpirationMs;
 
     private Key getSigningKey() {
-        byte[] keyBytes = Decoders.BASE64.decode(jwtSecret);
+        // Safe decoding for standard plain text strings
+        byte[] keyBytes = jwtSecret.getBytes(StandardCharsets.UTF_8);
         return Keys.hmacShaKeyFor(keyBytes);
     }
 
@@ -48,7 +48,7 @@ public class JwtUtil {
     private String buildToken(Map<String, Object> extraClaims, String subject, long expirationMs) {
         return Jwts.builder()
                 .setClaims(extraClaims)
-                .setSubject(subject) // Email is stored as the subject
+                .setSubject(subject)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + expirationMs))
                 .signWith(getSigningKey(), SignatureAlgorithm.HS256)

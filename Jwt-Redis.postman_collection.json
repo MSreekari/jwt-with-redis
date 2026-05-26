@@ -1,0 +1,128 @@
+{
+  "info": {
+    "_postman_id": "9a54b0ac-095b-40d3-a9c1-d66566847a4f",
+    "name": "Jwt-Redis",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "36340148"
+  },
+  "item": [
+    {
+      "name": "Register Request",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"username\": \"Sreekari\",\r\n  \"email\": \"test@gmail.com\",\r\n  \"password\": \"SecurePassword123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/auth/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Login Request",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"test@gmail.com\",\r\n  \"password\": \"SecurePassword123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Dashboard Stats Request",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJlMGFhNmQxYy05ZTcyLTRlYTQtYTVhNi03Yjg0MjRlODFhMzciLCJzdWIiOiJ0ZXN0QGdtYWlsLmNvbSIsImlhdCI6MTc3OTgxNTI5MywiZXhwIjoxNzc5ODE2MTkzfQ.5pcIuiPegqvxtyU5Uj5UsJIj54EAZTomSWNcOZdSKSg",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/dashboard/admin-stats",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "dashboard",
+            "admin-stats"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Dashboard Info Request",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJlMGFhNmQxYy05ZTcyLTRlYTQtYTVhNi03Yjg0MjRlODFhMzciLCJzdWIiOiJ0ZXN0QGdtYWlsLmNvbSIsImlhdCI6MTc3OTgxNTI5MywiZXhwIjoxNzc5ODE2MTkzfQ.5pcIuiPegqvxtyU5Uj5UsJIj54EAZTomSWNcOZdSKSg",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/dashboard/info",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "dashboard",
+            "info"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
