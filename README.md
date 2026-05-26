@@ -4,14 +4,10 @@ In standard stateless JWT applications, issued tokens cannot be invalidated unti
 
 This project solves that flaw by implementing a Hybrid Validation Lifecycle:
 
-1. Dual Token Lifecycles
-
-Access Token (Stateless): Short-lived token (15 minutes) passed via HTTP Authorization: Bearer headers to authenticate protected endpoints with zero relational database latency.
+1. Dual Token Lifecycles - Access Token (Stateless): Short-lived token (15 minutes) passed via HTTP Authorization: Bearer headers to authenticate protected endpoints with zero relational database latency.
 Refresh Token (Stateful Whitelist): Long-lived token (7 days) saved securely inside Redis. On token refresh requests, the system validates the incoming token string against the live memory whitelist before authorizing new access keys.
 
-3. Instant Token Revocation (Blacklisting)
-
-When an explicit /logout event is triggered, the short-lived access token is captured and committed directly to Redis as a temporary Blacklisted key. The key's Time-to-Live (TTL) is dynamically calculated to match the exact remaining lifespan of the token, ensuring automatic clean-up while blocking unauthorized usage immediately.
+2. Instant Token Revocation (Blacklisting) - When an explicit /logout event is triggered, the short-lived access token is captured and committed directly to Redis as a temporary Blacklisted key. The key's Time-to-Live (TTL) is dynamically calculated to match the exact remaining lifespan of the token, ensuring automatic clean-up while blocking unauthorized usage immediately.
 
 ![System Architecture](system-architecture/hld diagram.png)
 
