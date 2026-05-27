@@ -20,7 +20,7 @@ Refresh Token (Stateful Whitelist): Long-lived token (7 days) saved securely ins
 * Object-Relational Mapping: Spring Data JPA / Hibernate
 * Database Connection Pool: HikariCP
 
-## 🌟 Key Features
+## Key Features
 
 * **Dual-Token Hybrid Lifecycle:** Implements a cutting-edge hybrid security framework balancing stateless performance with stateful session control. Uses short-lived (15-minute) **JWT Access Tokens** for instantaneous, zero-latency microservice resource guard matching, paired with long-lived (7-day) **Refresh Tokens** to sustain long-term sessions securely.
 * **Active Redis Whitelisting:** Eliminates standard JWT vulnerabilities by maintaining an immutable user refresh token session map directly inside high-speed **Redis RAM storage**. Token validation chains inspect the active Redis whitelist dynamically on every rotation call, locking out hijacked or compromised long-lived signatures instantly.
